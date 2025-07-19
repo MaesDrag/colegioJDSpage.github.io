@@ -1,0 +1,1195 @@
+/* --- Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+/* --- Variables CSS (Colores y Fuentes) --- */
+:root {
+    --primary-color: #004a7c; /* Azul oscuro institucional */
+    --secondary-color: #f7a000; /* Naranja/Amarillo de acento - inspirado en el logo */
+    --accent-blue: #007bff; /* Azul vibrante para detalles */
+    --text-color: #333333;
+    --light-text-color: #555555;
+    --background-light: #f8f9fa; /* Gris claro para fondos */
+    --background-white: #ffffff;
+    --border-color: #e0e0e0;
+    --shadow-light: rgba(0, 0, 0, 0.08);
+    --shadow-medium: rgba(0, 0, 0, 0.15);
+
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Montserrat', sans-serif;
+}
+
+/* --- Base Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.7;
+    color: var(--text-color);
+    background-color: var(--background-white);
+    scroll-behavior: smooth;
+}
+
+.container {
+    width: 90%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Elimina espacio extra debajo de las imágenes */
+}
+
+/* --- Utility Classes --- */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.section-padding { padding: 80px 0; } /* Para todas las secciones principales */
+.section-light-bg { background-color: var(--background-light); }
+
+/* --- Headings --- */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    line-height: 1.3;
+    margin-bottom: 0.8em;
+}
+
+h1 { font-size: 3.5em; }
+h2 { font-size: 2.8em; }
+h3 { font-size: 2.2em; }
+h4 { font-size: 1.8em; }
+p { margin-bottom: 1em; color: var(--light-text-color); }
+
+.section-title {
+    font-size: 3em;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+    padding-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--secondary-color);
+    border-radius: 2px;
+}
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block;
+    padding: 14px 32px;
+    background-color: var(--secondary-color);
+    color: var(--background-white);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 12px var(--shadow-light);
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #e08b00; /* Un tono más oscuro del naranja */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px var(--shadow-medium);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: #00375c; /* Un tono más oscuro del azul */
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+    box-shadow: none;
+}
+.btn-outline:hover {
+    background-color: var(--secondary-color);
+    color: var(--background-white);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow-light);
+}
+
+
+/* --- Header & Navigation --- */
+.header {
+    background-color: var(--background-white);
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px var(--shadow-light);
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 2.2em;
+    font-weight: 700;
+}
+
+.logo a {
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 130px; /* Ajusta el tamaño del logo */
+    margin-right: 10px;
+    border-radius: 50%; /* Si el logo es circular */
+    object-fit: contain;
+}
+
+.header-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1.1; /* Ajusta para el espaciado entre líneas del texto */
+    text-transform: uppercase; /* Si quieres que el texto siempre sea mayúsculas */
+    font-family: var(--font-body); /* Usa tu fuente base definida en :root */
+}
+
+.header-text .ue-text { /* "UNIDAD EDUCATIVA" */
+    font-size: 0.6em; /* Aquí es donde ajustas para hacerlo más pequeño */
+    font-weight: normal;
+    color: var(--primary-color); /* O el color que quieras */
+}
+
+.header-text .nombre-text { /* "JOSÉ D. DE SANTISTEVAN" */
+    font-size: 0.8em; /* Aquí es donde ajustas para hacerlo más pequeño */
+    font-weight: bold;
+    white-space: nowrap; /* Evita que el nombre se rompa en varias líneas */
+    color: var(--primary-color); /* O el color que quieras */
+}
+
+.header-text .jb-text { /* "JUNTA DE BENEFICENCIA" */
+    font-size: 0.4em; /* Aquí es donde ajustas para hacerlo más pequeño */
+    font-weight: normal;
+    opacity: 0.9; /* Un poco transparente para que no compita tanto */
+    color: var(--light-text-color); /* O el color que quieras */
+}
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+}
+
+.nav-menu ul li {
+    margin-left: 40px;
+}
+
+.nav-menu ul li a {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 1.05em;
+    padding: 8px 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-menu ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--secondary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-menu ul li a:hover::after,
+.nav-menu ul li a.active::after {
+    width: 100%;
+}
+
+.nav-menu ul li a:hover,
+.nav-menu ul li a.active {
+    color: var(--secondary-color);
+}
+
+/* Hamburger Menu (for mobile) */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    z-index: 1001; /* Asegura que esté por encima del menú desplegable */
+}
+
+.hamburger-menu span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger-menu.active span:nth-child(1) {
+    transform: translateY(11px) rotate(45deg);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg);
+}
+
+/* --- Hero Section (Landing Page) --- */
+.hero-section {
+    position: relative;
+    height: 85vh; /* Gran altura para impacto */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--background-white);
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://via.placeholder.com/1920x1080/004a7c/FFFFFF?text=Campus+Moderno') no-repeat center center/cover;
+    /* Reemplaza con una imagen de campus de alta calidad */
+    z-index: -1;
+    filter: brightness(0.8); /* Un poco más oscuro para que el texto resalte */
+}
+
+.hero-content {
+    max-width: 900px;
+    z-index: 1;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 4.5em;
+    color: var(--background-white);
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+}
+
+.hero-content p {
+    font-size: 1.4em;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 40px;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+}
+
+/* --- Small Hero Section (for internal pages) --- */
+.hero-section.small-hero {
+    height: 45vh; /* Más pequeño para páginas internas */
+    text-align: center;
+}
+
+.hero-section.small-hero .hero-background {
+    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('https://via.placeholder.com/1920x800/004a7c/FFFFFF?text=Estudiantes+Aprendiendo') no-repeat center center/cover;
+}
+
+.hero-section.small-hero .hero-content h2 {
+    font-size: 3.5em;
+    color: var(--background-white);
+    margin-bottom: 15px;
+}
+
+.hero-section.small-hero .hero-content p {
+    font-size: 1.2em;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+
+/* --- About Section (index.html) --- */
+.about-overview {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    padding: 60px 0;
+}
+
+.about-overview .content {
+    flex: 1;
+    text-align: left;
+}
+
+.about-overview .image {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-overview .image img {
+    border-radius: 10px;
+    box-shadow: 0 8px 25px var(--shadow-medium);
+    object-fit: cover;
+    width: 100%;
+    height: 400px;
+}
+
+.about-overview h2 {
+    font-size: 2.8em;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.about-overview p {
+    font-size: 1.1em;
+    margin-bottom: 25px;
+}
+
+/* --- Features/Why Choose Us Section (index.html) --- */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.feature-item {
+    background-color: var(--background-white);
+    padding: 35px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px var(--shadow-light);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 5px solid var(--primary-color); /* Toque de color */
+}
+
+.feature-item:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 10px 25px var(--shadow-medium);
+}
+
+.feature-item .icon {
+    font-size: 3.5em;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+    display: block;
+}
+
+.feature-item h3 {
+    font-size: 1.7em;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.feature-item p {
+    font-size: 1em;
+    color: var(--light-text-color);
+}
+
+/* --- Call to Action Section --- */
+.cta-section {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://via.placeholder.com/1920x600/f7a000/FFFFFF?text=Futuro+Brillante') no-repeat center center/cover;
+    color: var(--background-white);
+    text-align: center;
+    padding: 100px 0;
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.3);
+}
+
+.cta-section h2 {
+    color: var(--background-white);
+    font-size: 3.2em;
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+}
+
+.cta-section p {
+    font-size: 1.3em;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+/* --- News/Announcements Section (index.html) --- */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.news-item {
+    background-color: var(--background-white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px var(--shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px var(--shadow-medium);
+}
+
+.news-item img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.news-content {
+    padding: 25px;
+    text-align: left;
+}
+
+.news-content h3 {
+    font-size: 1.6em;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.news-content p {
+    font-size: 0.95em;
+    color: var(--light-text-color);
+    margin-bottom: 15px;
+}
+
+.news-content .date {
+    display: block;
+    font-size: 0.85em;
+    color: var(--dark-gray); /* Dark gray, no var here */
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* --- General Content Sections (for internal pages) --- */
+.content-section {
+    padding: 80px 0;
+    text-align: left;
+}
+
+.content-section .section-title {
+    margin-bottom: 40px; /* Ajuste para títulos internos */
+}
+
+.content-text-block {
+    max-width: 900px;
+    margin: 0 auto 40px auto;
+}
+.content-text-block p {
+    font-size: 1.15em;
+    margin-bottom: 1.5em;
+}
+
+/* --- Grid Layouts (Acerca de, Programas) --- */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.info-item {
+    background-color: var(--background-white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px var(--shadow-light);
+    border-left: 6px solid var(--secondary-color);
+    transition: transform 0.3s ease;
+}
+.info-item:hover {
+    transform: translateY(-5px);
+}
+
+.info-item h3 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.info-item p {
+    font-size: 1em;
+    color: var(--light-text-color);
+}
+
+.info-item ul {
+    list-style: none; /* Eliminar viñetas predeterminadas */
+    padding-left: 0;
+    margin-top: 15px;
+}
+
+.info-item ul li {
+    font-size: 1em;
+    color: var(--light-text-color);
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 25px; /* Espacio para el ícono personalizado */
+}
+
+.info-item ul li::before {
+    content: '✓'; /* Ícono de checkmark */
+    color: var(--secondary-color);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+
+/* --- Admissions Steps (Admisiones) --- */
+.admissions-steps {
+    list-style: none;
+    counter-reset: step-counter;
+    padding: 0;
+    max-width: 900px;
+    margin: 50px auto 0 auto;
+}
+
+.admissions-steps li {
+    background-color: var(--background-white);
+    margin-bottom: 25px;
+    padding: 25px 30px 25px 80px; /* Más padding a la izquierda para el número */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px var(--shadow-light);
+    position: relative;
+    text-align: left;
+}
+
+.admissions-steps li::before {
+    counter-increment: step-counter;
+    content: counter(step-counter);
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--primary-color);
+    color: var(--background-white);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.4em;
+    box-shadow: 0 2px 8px var(--shadow-medium);
+}
+
+.admissions-steps li h4 {
+    font-size: 1.6em;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+}
+
+.admissions-steps li p {
+    font-size: 1em;
+    color: var(--light-text-color);
+    margin-bottom: 0;
+}
+
+.important-dates {
+    background-color: var(--background-light);
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 50px;
+    text-align: left;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 2px 10px var(--shadow-light);
+}
+
+.important-dates h3 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 2em;
+    color: var(--primary-color);
+}
+
+.important-dates ul {
+    list-style: none;
+    padding: 0;
+}
+
+.important-dates ul li {
+    font-size: 1.1em;
+    margin-bottom: 12px;
+    color: var(--light-text-color);
+    display: flex;
+    align-items: center;
+}
+
+.important-dates ul li strong {
+    color: var(--primary-color);
+    min-width: 150px; /* Para alinear el texto */
+    display: inline-block;
+}
+
+
+/* --- Contact Section --- */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr; /* Formulario un poco más grande */
+    gap: 50px;
+    margin-top: 50px;
+}
+
+.contact-info-block,
+.contact-form-block {
+    padding: 35px;
+    background-color: var(--background-white);
+    border-radius: 10px;
+    box-shadow: 0 5px 20px var(--shadow-light);
+    text-align: left;
+}
+
+.contact-info-block h2,
+.contact-form-block h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.2em;
+    color: var(--primary-color);
+}
+
+.contact-info-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 25px;
+}
+
+.contact-info-item .icon {
+    font-size: 1.8em;
+    color: var(--secondary-color);
+    margin-right: 20px;
+    flex-shrink: 0; /* No permite que el ícono se encoja */
+    width: 35px;
+    text-align: center;
+}
+
+.contact-info-item .details h4 {
+    font-size: 1.3em;
+    margin-bottom: 5px;
+    color: var(--primary-color);
+}
+
+.contact-info-item .details p {
+    font-size: 1em;
+    color: var(--light-text-color);
+    margin-bottom: 0;
+}
+.contact-info-item .details a {
+    color: var(--light-text-color);
+}
+.contact-info-item .details a:hover {
+    color: var(--secondary-color);
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-color);
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"],
+.contact-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-family: var(--font-body);
+    font-size: 1em;
+    color: var(--text-color);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 74, 124, 0.1);
+    outline: none;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contact-form .btn {
+    width: 100%;
+    margin-top: 15px;
+    padding: 15px 20px;
+    font-size: 1.2em;
+}
+
+.map-container {
+    margin-top: 40px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px var(--shadow-light);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 350px;
+    border: 0;
+}
+
+/* --- Footer --- */
+.footer {
+    background-color: var(--primary-color);
+    color: var(--background-white);
+    padding: 40px 0;
+    font-size: 0.95em;
+}
+
+.footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 20px;
+}
+
+.footer-col h3 {
+    color: var(--secondary-color);
+    font-size: 1.4em;
+    margin-bottom: 20px;
+}
+
+.footer-col p,
+.footer-col address,
+.footer-col ul li {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 8px;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li a {
+    color: rgba(255, 255, 255, 0.8);
+    transition: color 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+    color: var(--secondary-color);
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-icons a {
+    color: var(--background-white);
+    font-size: 1.5em;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.social-icons a:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 20px;
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0.85em;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+    h1 { font-size: 3em; }
+    h2 { font-size: 2.2em; }
+    h3 { font-size: 1.8em; }
+
+    .section-title { font-size: 2.5em; }
+
+    .hero-content h1 { font-size: 3.5em; }
+    .hero-content p { font-size: 1.2em; }
+    .hero-section.small-hero .hero-content h2 { font-size: 2.8em; }
+    .hero-section.small-hero .hero-content p { font-size: 1em; }
+
+    .about-overview { flex-direction: column; text-align: center; }
+    .about-overview .content { text-align: center; }
+    .about-overview .image { margin-top: 30px; }
+    .about-overview .image img { height: 350px; }
+
+    .contact-grid { grid-template-columns: 1fr; }
+    .contact-info-block, .contact-form-block { padding: 30px; }
+
+    .footer .container { flex-direction: column; align-items: center; text-align: center; }
+    .footer-col { min-width: unset; width: 100%; margin-bottom: 30px; }
+    .social-icons { justify-content: center; }
+}
+
+@media (max-width: 768px) {
+    .header .container { flex-wrap: wrap; }
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--background-white);
+        position: absolute;
+        top: 90px; /* Ajusta según la altura de tu logo/header */
+        left: 0;
+        box-shadow: 0 5px 15px var(--shadow-medium);
+        border-top: 1px solid var(--border-color);
+        padding-bottom: 10px;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-menu ul li {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid var(--background-light);
+    }
+
+    .nav-menu ul li:last-child {
+        border-bottom: none;
+    }
+
+    .nav-menu ul li a {
+        padding: 15px 0;
+        display: block;
+    }
+    .nav-menu ul li a::after {
+        display: none; /* Ocultar subrayado en móvil */
+    }
+
+    .hamburger-menu {
+        display: flex;
+        order: 2; /* Para que el menú hamburguesa aparezca a la derecha del logo */
+    }
+
+    .logo {
+        font-size: 1.8em;
+        order: 1;
+    }
+
+    .hero-section { height: 70vh; }
+    .hero-content h1 { font-size: 2.5em; }
+    .hero-content p { font-size: 1em; }
+    .hero-section.small-hero { height: 35vh; }
+    .hero-section.small-hero .hero-content h2 { font-size: 2em; }
+
+    .section-padding { padding: 50px 0; }
+    .section-title { font-size: 2em; margin-bottom: 40px; }
+
+    .feature-item, .news-item, .info-item { padding: 25px; }
+
+    .admissions-steps li {
+        padding: 20px 20px 20px 65px;
+    }
+    .admissions-steps li::before {
+        width: 35px;
+        height: 35px;
+        font-size: 1.2em;
+        left: 15px;
+    }
+    .admissions-steps li h4 {
+        font-size: 1.4em;
+    }
+    .important-dates { padding: 20px; }
+
+    .contact-info-item { flex-direction: column; text-align: center; }
+    .contact-info-item .icon { margin-right: 0; margin-bottom: 10px; }
+    .contact-form .btn { font-size: 1.1em; }
+    .map-container { margin-top: 25px; }
+    .map-container iframe { height: 250px; }
+}
+
+/* --- Estilos Generales para Secciones Hero (si no los tienes aún, añádelos) --- */
+/* Esto define el comportamiento base de cualquier sección hero */
+.hero-section {
+    width: 100%;
+    position: relative; /* Base para posicionar elementos internos */
+    overflow: hidden; /* Importante para el carrusel y para contener imágenes que cubren */
+    display: flex;
+    align-items: center; /* Centra el contenido verticalmente por defecto */
+    justify-content: center; /* Centra el contenido horizontalmente por defecto */
+    text-align: center;
+    color: white; /* Color de texto por defecto en banners */
+    padding: 0; /* Asegura que no haya padding externo en la sección hero */
+}
+
+/* Si usas small-hero en otras páginas que no sean carrusel/imagen directa, puedes mantener esto */
+/* .hero-section.small-hero {
+    height: 40vh;
+    min-height: 250px;
+} */
+
+.hero-section .hero-content {
+    position: relative; /* Asegura que el texto esté sobre la imagen */
+    z-index: 2; /* Pone el texto por encima de la imagen/carrusel */
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px; /* Padding interno para el texto */
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.6); /* Sombra para mejor lectura */
+}
+
+.hero-section .hero-content h2 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: inherit; /* Hereda el color del padre (white) */
+}
+
+.hero-section .hero-content p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: inherit; /* Hereda el color del padre (white) */
+}
+
+
+/* --- Estilos para el Carrusel de Admisiones (`admisiones.html`) --- */
+.hero-section.admissions-carousel-hero {
+    height: 70vh; /* Altura específica para el carrusel de Admisiones */
+    /* No se necesita background-image aquí porque la imagen está dentro de cada slide */
+}
+
+.carousel-container {
+    width: 100%;
+    height: 100%;
+    position: absolute; /* Ocupa todo el espacio de .admissions-carousel-hero */
+    top: 0;
+    left: 0;
+}
+
+.carousel-slide {
+    display: none; /* Oculto por defecto */
+    width: 100%;
+    height: 100%;
+    position: absolute; /* Para apilar las slides */
+    top: 0;
+    left: 0;
+    cursor: pointer; /* Indica que es clickeable */
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cubre el área sin distorsionar */
+    filter: brightness(0.7); /* Oscurece las imágenes ligeramente */
+}
+
+/* Flechas de navegación */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    transition: 0.6s ease;
+    user-select: none;
+    background-color: rgba(0,0,0,0.4);
+    z-index: 3; /* Por encima de las slides */
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev {
+    left: 0;
+    border-radius: 0 3px 3px 0;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+/* Puntos de navegación */
+.carousel-dots {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    z-index: 3; /* Por encima de las slides */
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active-dot, .dot:hover {
+    background-color: #717171;
+}
+
+/* Animación de desvanecimiento */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+
+/* --- Estilos para el Banner de Programas Académicos (`programas.html`) --- */
+.hero-section.programs-hero-with-img {
+    height: 60vh; /* Altura específica para el banner de Programas */
+    /* No se necesita background-image aquí */
+}
+
+.hero-section.programs-hero-with-img .hero-banner-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cubre el área sin distorsionar */
+    z-index: -1; /* Envía la imagen al fondo */
+    filter: brightness(0.6); /* Oscurece la imagen para el contraste del texto */
+}
+
+/* Asegura que el contenido (texto) esté por encima de la imagen */
+.hero-section.programs-hero-with-img .hero-content {
+    position: relative; /* Asegura que el contenido esté en la capa superior */
+    z-index: 1; /* Pone el contenido por encima de la imagen */
+    /* Hereda los demás estilos de .hero-content general */
+}
+
+/* Media Queries para responsividad - Ambas secciones */
+@media (max-width: 992px) {
+    .hero-section.admissions-carousel-hero {
+        height: 60vh;
+    }
+    .hero-section.programs-hero-with-img {
+        height: 50vh;
+    }
+    .hero-section .hero-content h2 { /* Ajuste general para títulos */
+        font-size: 2.5em;
+    }
+    .hero-section .hero-content p { /* Ajuste general para párrafos */
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section.admissions-carousel-hero {
+        height: 50vh;
+    }
+    .hero-section.programs-hero-with-img {
+        height: 40vh;
+    }
+    .hero-section .hero-content h2 {
+        font-size: 2em;
+    }
+    .hero-section .hero-content p {
+        font-size: 1em;
+    }
+    .prev, .next { /* Ajuste de flechas para carrusel */
+        font-size: 20px;
+        padding: 10px;
+        margin-top: -15px;
+    }
+    .dot { /* Ajuste de puntos para carrusel */
+        height: 10px;
+        width: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section.admissions-carousel-hero {
+        height: 40vh;
+    }
+    .hero-section.programs-hero-with-img {
+        height: 35vh;
+    }
+    .hero-section .hero-content h2 {
+        font-size: 1.5em;
+    }
+    .hero-section .hero-content p {
+        font-size: 0.9em;
+    }
+    .carousel-dots { /* Sube los puntos en móviles */
+        bottom: 10px;
+    }
+}
